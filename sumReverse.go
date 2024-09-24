@@ -9,8 +9,8 @@
 package main
 
 import (
-	"fmt"
-	"math"
+  "fmt"
+  "math"
   "os"
   "io"
 )
@@ -24,9 +24,9 @@ func main() {
     if n > 0 {
       fmt.Printf("%d\n", n + revInt(n))
     } else {
-			fmt.Fprintf(os.Stderr, "Error: input value %d is not positive\n", n)
+      fmt.Fprintf(os.Stderr, "Error: input value %d is not positive\n", n)
     }
-  	retVal , err = fmt.Scanf("%d", &n)
+      retVal , err = fmt.Scanf("%d", &n)
   }
 
   if retVal == 0 && err != io.EOF {
@@ -44,15 +44,13 @@ func main() {
  */
 func revInt(n int) int {
   var result = 0
-
   var index = int(math.Pow(10, math.Floor(math.Log10(float64(n)))))
 
   for i := n; i > 0; i /= 10 {
-		var lastDig = i % 10 
+    var lastDig = i % 10 
 
     result += lastDig * index
     index /= 10 
   }
-
-	return result
+  return result
 }
